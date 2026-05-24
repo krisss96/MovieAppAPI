@@ -1,0 +1,361 @@
+{
+  "info": {
+    "_postman_id": "b7e1d5c8-4a14-4fb8-9d67-8a7d8df7baf1",
+    "name": "MoviesAPI",
+    "description": "Postman collection for the MoviesAPI Spring Boot application.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Movies",
+      "item": [
+        {
+          "name": "Get all movies",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/movies",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "movies"]
+            }
+          }
+        },
+        {
+          "name": "Get movie by title",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/movies/title/{{movieTitle}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "movies", "title", "{{movieTitle}}"]
+            }
+          }
+        },
+        {
+          "name": "Get movies by mood",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/movies/mood/{{moodName}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "movies", "mood", "{{moodName}}"]
+            }
+          }
+        },
+        {
+          "name": "Save movie",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Interstellar\",\n  \"mins\": 169,\n  \"rating\": 8.6,\n  \"platform\": {\n    \"name\": \"Netflix\",\n    \"imagePath\": \"/images/platforms/netflix.png\"\n  },\n  \"mood\": {\n    \"name\": \"hopeful\"\n  },\n  \"feelings\": [\n    {\n      \"feeling\": \"awe\"\n    },\n    {\n      \"feeling\": \"wonder\"\n    }\n  ],\n  \"quote\": \"Love is the one thing we're capable of perceiving that transcends dimensions of time and space.\",\n  \"color1\": 12,\n  \"color2\": 34,\n  \"color3\": 56,\n  \"color4\": 78,\n  \"color5\": 90,\n  \"heroImage\": \"/images/interstellar/hero.jpg\",\n  \"soundtrack\": \"/audio/interstellar.mp3\",\n  \"scene1\": \"/images/interstellar/scene1.jpg\",\n  \"scene2\": \"/images/interstellar/scene2.jpg\",\n  \"scene3\": \"/images/interstellar/scene3.jpg\",\n  \"scene4\": \"/images/interstellar/scene4.jpg\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/movies/save",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "movies", "save"]
+            }
+          }
+        },
+        {
+          "name": "Delete movie",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Interstellar\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/movies/delete",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "movies", "delete"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Moods",
+      "item": [
+        {
+          "name": "Get all moods",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/moods",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "moods"]
+            }
+          }
+        },
+        {
+          "name": "Get mood by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/moods/{{moodId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "moods", "{{moodId}}"]
+            }
+          }
+        },
+        {
+          "name": "Save mood",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"hopeful\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/moods/save",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "moods", "save"]
+            }
+          }
+        },
+        {
+          "name": "Delete mood",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"hopeful\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/moods/delete",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "moods", "delete"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Feelings",
+      "item": [
+        {
+          "name": "Get all feelings",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/feelings",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "feelings"]
+            }
+          }
+        },
+        {
+          "name": "Get feeling by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/feelings/{{feelingId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "feelings", "{{feelingId}}"]
+            }
+          }
+        },
+        {
+          "name": "Get feelings for movie",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/feelings/movie/{{movieId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "feelings", "movie", "{{movieId}}"]
+            }
+          }
+        },
+        {
+          "name": "Save feeling",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"feeling\": \"awe\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/feelings/save",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "feelings", "save"]
+            }
+          }
+        },
+        {
+          "name": "Delete feeling",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"feeling\": \"awe\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/feelings/delete",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "feelings", "delete"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Platforms",
+      "item": [
+        {
+          "name": "Get all platforms",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/platforms",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "platforms"]
+            }
+          }
+        },
+        {
+          "name": "Get platform by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/platforms/{{platformId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "platforms", "{{platformId}}"]
+            }
+          }
+        },
+        {
+          "name": "Get platform by movie id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/platforms/movie/{{movieId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "platforms", "movie", "{{movieId}}"]
+            }
+          }
+        },
+        {
+          "name": "Save platform",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Netflix\",\n  \"imagePath\": \"/images/platforms/netflix.png\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/platforms/save",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "platforms", "save"]
+            }
+          }
+        },
+        {
+          "name": "Delete platform",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Netflix\",\n  \"imagePath\": \"/images/platforms/netflix.png\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/platforms/delete",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "platforms", "delete"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "movieId",
+      "value": "1"
+    },
+    {
+      "key": "movieTitle",
+      "value": "Interstellar"
+    },
+    {
+      "key": "moodId",
+      "value": "1"
+    },
+    {
+      "key": "moodName",
+      "value": "hopeful"
+    },
+    {
+      "key": "feelingId",
+      "value": "1"
+    },
+    {
+      "key": "platformId",
+      "value": "1"
+    }
+  ]
+}
+
