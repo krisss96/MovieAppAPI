@@ -19,6 +19,8 @@ public class MovieResource {
 	private short color4;
 	private short color5;
 	private String heroImage;
+	// poster image path
+	private String posterPath;
 	private String soundtrack;
 	private String scene1;
 	private String scene2;

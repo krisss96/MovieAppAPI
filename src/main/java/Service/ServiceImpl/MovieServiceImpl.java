@@ -5,7 +5,6 @@ import Entity.Feeling;
 import Entity.Movie;
 import Entity.Mood;
 import Entity.Platform;
-import Mapper.FeelingMapper;
 import Repository.FeelingRepository;
 import Repository.MoodRepository;
 import Repository.MovieRepository;
@@ -32,6 +31,13 @@ public class MovieServiceImpl implements MovieService {
     @Transactional
     public MovieResource save(MovieResource movieResource) {
         Movie movie = MOVIE_MAPPER.resourceToMovieEntity(movieResource);
+        movie.setHeroImage(normalizeStaticPrefix(movie.getHeroImage()));
+        movie.setPosterPath(normalizeStaticPrefix(movie.getPosterPath()));
+        movie.setSoundtrack(normalizeStaticPrefix(movie.getSoundtrack()));
+        movie.setScene1(normalizeStaticPrefix(movie.getScene1()));
+        movie.setScene2(normalizeStaticPrefix(movie.getScene2()));
+        movie.setScene3(normalizeStaticPrefix(movie.getScene3()));
+        movie.setScene4(normalizeStaticPrefix(movie.getScene4()));
 
         if (movie.getMood() != null && movie.getMood().getName() != null) {
             Mood mood = moodRepository.findByName(movie.getMood().getName());
@@ -42,6 +48,7 @@ public class MovieServiceImpl implements MovieService {
         }
 
         if (movie.getPlatform() != null && movie.getPlatform().getName() != null) {
+            movie.getPlatform().setImagePath(normalizeStaticPrefix(movie.getPlatform().getImagePath()));
             Platform platform = platformRepository.getPlatformByName(movie.getPlatform().getName());
             if (platform == null) {
                 platform = platformRepository.save(movie.getPlatform());
@@ -84,5 +91,13 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public List<MovieResource> findByMood(String mood) {
         return MOVIE_MAPPER.movieEntityToResourceList(movieRepository.findByMood_Name(mood));
+    }
+
+    private String normalizeStaticPrefix(String path) {
+        if (path == null || !path.startsWith("/static/")) {
+            return path;
+        }
+
+        return path.substring("/static".length());
     }
 }

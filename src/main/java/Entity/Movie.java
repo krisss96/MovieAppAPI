@@ -26,6 +26,7 @@ public class Movie {
 	@ManyToMany
 	private List<Feeling> feelings;
 	private String quote;
+//
 
 	//color pallete
 	private short color1;
@@ -36,6 +37,8 @@ public class Movie {
 
 	//file paths
 	private String heroImage;
+	// poster image path
+	private String posterPath;
 	private String soundtrack;
 	private String scene1;
 	private String scene2;
