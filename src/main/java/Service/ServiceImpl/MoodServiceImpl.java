@@ -19,6 +19,9 @@ public class MoodServiceImpl implements MoodService {
     @Override
     @Transactional
     public MoodResource save(MoodResource moodResource) {
+        if (moodResource.getMoodCoverPath() != null && moodResource.getMoodCoverPath().startsWith("/static/")) {
+            moodResource.setMoodCoverPath(moodResource.getMoodCoverPath().substring("/static".length()));
+        }
         moodRepository.save(MOOD_MAPPER.resourceToMood(moodResource));
         return moodResource;
     }

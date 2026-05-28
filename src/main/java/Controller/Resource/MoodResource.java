@@ -1,10 +1,12 @@
 package Controller.Resource;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
-import lombok.Getter;
 
 @Data
 public class MoodResource {
-    @Getter
-    String name;
+    private String name;
+
+    @JsonAlias("moodCover")
+    private String moodCoverPath;
 }

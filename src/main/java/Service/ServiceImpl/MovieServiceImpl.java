@@ -40,9 +40,13 @@ public class MovieServiceImpl implements MovieService {
         movie.setScene4(normalizeStaticPrefix(movie.getScene4()));
 
         if (movie.getMood() != null && movie.getMood().getName() != null) {
+            movie.getMood().setMoodCoverPath(normalizeStaticPrefix(movie.getMood().getMoodCoverPath()));
             Mood mood = moodRepository.findByName(movie.getMood().getName());
             if (mood == null) {
                 mood = moodRepository.save(movie.getMood());
+            } else if (movie.getMood().getMoodCoverPath() != null) {
+                mood.setMoodCoverPath(movie.getMood().getMoodCoverPath());
+                mood = moodRepository.save(mood);
             }
             movie.setMood(mood); // set- overwrite the mood in the movie with the managed entity
         }
