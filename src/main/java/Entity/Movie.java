@@ -29,11 +29,11 @@ public class Movie {
 //
 
 	//color pallete
-	private short color1;
-	private short color2;
-	private short color3;
-	private short color4;
-	private short color5;
+	private String color1;
+	private String color2;
+	private String color3;
+	private String color4;
+	private String color5;
 
 	//file paths
 	private String heroImage;
