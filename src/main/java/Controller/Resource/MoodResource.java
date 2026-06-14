@@ -9,4 +9,6 @@ public class MoodResource {
 
     @JsonAlias("moodCover")
     private String moodCoverPath;
+    private String description;
+    private String transcript;
 }

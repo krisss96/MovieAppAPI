@@ -40,6 +40,8 @@ public class Movie {
 	// poster image path
 	private String posterPath;
 	private String soundtrack;
+	private String soundtrackName;
+
 	private String scene1;
 	private String scene2;
 	private String scene3;

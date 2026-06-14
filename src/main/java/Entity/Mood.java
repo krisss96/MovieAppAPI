@@ -16,6 +16,8 @@ public class Mood {
     private String name;
 
     private String moodCoverPath;
+    private String description;
+    private String transcript;
 
     @OneToMany(mappedBy = "mood", cascade = CascadeType.ALL)
     private List<Movie> movies;
