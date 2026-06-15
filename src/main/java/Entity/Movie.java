@@ -27,6 +27,8 @@ public class Movie {
 	private List<Feeling> feelings;
 	private String quote;
 //
+	@ManyToMany
+	private List<Watchlist> watchlist;
 
 	//color pallete
 	private String color1;
