@@ -1,11 +1,13 @@
 package Controller.Resource;
 
 import lombok.Data;
+import lombok.Getter;
 
 import java.util.List;
 
 @Data
 public class MovieResource {
+	@Getter
 	private String title;
 	private short mins;
 	private float rating;
@@ -19,7 +21,6 @@ public class MovieResource {
 	private String color4;
 	private String color5;
 	private String heroImage;
-	// poster image path
 	private String posterPath;
 	private String soundtrack;
 	private String soundtrackName;

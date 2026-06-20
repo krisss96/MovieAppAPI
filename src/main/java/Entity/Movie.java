@@ -2,6 +2,7 @@ package Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ public class Movie {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@Getter
 	@Column(unique=true)
 	private String title;
 	private short mins;
@@ -26,8 +28,10 @@ public class Movie {
 	@ManyToMany
 	private List<Feeling> feelings;
 	private String quote;
-//
-	@ManyToMany
+
+	//One watchlist to one movie, but one movie to many watchlists
+	//cascade - when movie is deleted, delete all watchlists that have that movie, but not the other way around
+	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
 	private List<Watchlist> watchlist;
 
 	//color pallete

@@ -3,6 +3,7 @@ package Entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -14,7 +15,8 @@ public class Watchlist {
     private long id;
 
     @Getter
-    @ManyToMany
-    private List<Movie> movie;
+    @Setter
+    @ManyToOne
+    private Movie movie;
     private String UID;
 }

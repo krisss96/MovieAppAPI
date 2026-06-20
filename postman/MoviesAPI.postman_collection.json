@@ -325,6 +325,78 @@
           }
         }
       ]
+    },
+    {
+      "name": "Watchlists",
+      "item": [
+        {
+          "name": "Add to Watchlist",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"movieResource\": {\n    \"title\": \"Interstellar\"\n  },\n  \"UID\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/watchlist/add",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "watchlist", "add"]
+            },
+            "description": "Creates or appends a movie to a watchlist."
+          }
+        },
+        {
+          "name": "Get Watchlist by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/watchlist/{{watchlistId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "watchlist", "{{watchlistId}}"]
+            },
+            "description": "Retrieves a specific watchlist items bundle using its unique database tracking index ID."
+          }
+        },
+        {
+          "name": "Get All Watchlists",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/watchlist/all",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "watchlist", "all"]
+            },
+            "description": "Fetches a complete array list containing all configured watchlists in the database."
+          }
+        },
+        {
+          "name": "Delete Watchlist",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/finder/api/watchlist/delete/{{watchlistId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["finder", "api", "watchlist", "delete", "{{watchlistId}}"]
+            },
+            "description": "Removes a watchlist from the system based on the provided ID path variable."
+          }
+        }
+      ]
     }
   ],
   "variable": [
@@ -355,7 +427,10 @@
     {
       "key": "platformId",
       "value": "1"
+    },
+    {
+      "key": "watchlistId",
+      "value": "1"
     }
   ]
 }
-
